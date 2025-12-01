@@ -9,11 +9,12 @@ import { errors } from 'celebrate';
 const errorHandler = (app: express.Express) => {
     app.use(errors());/* Tratar erros de validação definido por schema */
     app.use( (error:Error, req: Request, res: Response, next: NextFunction) => {    
+        //console.log(error);
         if(error instanceof ValdationError) {
             error.send(res);
-        }else if(error instanceof NotFoundError){
+        }else if(error instanceof GeneralError ){
             error.send(res);
-        }else if(error instanceof GeneralError) {
+        }else if(error instanceof NotFoundError) {
             error.send(res);
         }
         else{

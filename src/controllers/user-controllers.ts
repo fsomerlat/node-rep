@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+import {Request, NextFunction, Response} from 'express';
 import { UserService } from '../service/user.service';
 
 export default class UserController extends UserService {
@@ -7,12 +7,11 @@ export default class UserController extends UserService {
         super();
     }
 
-    async  getAllUsers(req:Request, res: Response):Promise<any> {        
-        await super.getUsersService(res);
+    async  getAllUsers(req: Request, res: Response, next: NextFunction):Promise<string|any> {        
+        await super.getUsersService(res, next);
     }
 
-    async addUser(req:Request, res: Response) {
-        console.log(req.body);
-        await super.addUserService(req.body, res);
+    async addUser(req:Request, res: Response, next: NextFunction):Promise<void> {
+        await super.addUserService(req.body, res, next);
     }
 }

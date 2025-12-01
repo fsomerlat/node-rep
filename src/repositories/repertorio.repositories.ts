@@ -3,20 +3,21 @@ import {Repertorio} from '../models/repertorio.models'
 
 export class RepertorioRepositories extends DatabaseConfig {
 
-  async  getAllRepRepositories(): Promise<Repertorio[]|null> {
+  constructor(){
+      super();
+  } 
+
+  async getAllRepRepositories(): Promise<Repertorio[]|null> {
         
-        const sql = `SELECT idMusica, IdUsuario, dataCadastro, ultimaAtualizacao, situacao, tom
-                        FROM  reposiorio`;
+    
+       const sql = `SELECT   idMusica, IdUsuario, dataCadastro, ultimaAtualizacao, situacao, tom
+                        FROM repertorio`;
 
         const [rows] = await super.prepare(sql); 
-
-        if(rows.length == 0) {
-            return null;
-        }else{
-            const repertorio = rows.map( (data) => ({
-                ...data
-            })) as Repertorio[]
-            return repertorio;
-        }
+    
+        const repertorio = rows.map( (data) => ({
+            ...data
+        })) as Repertorio[]
+        return repertorio;    
     }
 }
