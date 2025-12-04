@@ -7,7 +7,7 @@ import MusicRepositorie from "../repositories/music.repositorie";
 
 (async () => {
 
-    const rep = new UserRepositorie();
+    const repo = new UserRepositorie();
     const users = await repo.getAllUsersRepositorie();
     console.log('Quantidade usuário = ', users.length);
 
