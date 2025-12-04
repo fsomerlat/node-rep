@@ -1,0 +1,22 @@
+name: Teste depositories 
+
+on:
+  push:
+    branches: [main]
+jobs:
+  test-uni-repositories: #nome do trabalho 
+    runs-on: ubuntu-latest #provisiona/cria uma maquina com ultima versao do unbutu
+    steps:
+      - uses: actions/checkout@v5 #baixa o código que está sendo enviado para main, para verificar em ambiente seguro e ver se está de acordo
+      - name: Usando Node.js / express
+        uses: actions/setup-node@v4 #instala o node.js dentro da maquina criada
+        with:
+          node-version: '22.x' #garante que a versão a ser instalada é 22 pra cima
+      - name:  Instalar as dependecias do node.js 
+        run: npm install #instala as depêncidas do node.js
+      - name: Executando o Build
+        run: npm run build #Executa o build
+      - name: Executando do teste repositories
+        run: npm test # Rodar os tests para ver se está de acordo
+
+
