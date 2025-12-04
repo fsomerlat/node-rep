@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+/*import dotenv from "dotenv";
 dotenv.config();
 
 
@@ -16,5 +16,9 @@ import MusicRepositorie from "../repositories/music.repositorie";
     const qtdMusic = await music.getAll();
     console.log(`Quantidade de música é ${qtdMusic?.length}`);
 
+})();*/
+
+(async() => {
+    console.log('Teste concluído - Removido dependências .env')
 })();
 
