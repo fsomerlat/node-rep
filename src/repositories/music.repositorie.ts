@@ -63,7 +63,7 @@ export default class MusicRepositorie extends DatabaseConfig {
 
         const musicId = await this.getById(id);
 
-        if(musicId.length == 0){
+        if(musicId?.length == 0){
             throw new GeneralError("Registro não encontrado !");
         }
 
@@ -71,14 +71,16 @@ export default class MusicRepositorie extends DatabaseConfig {
         await super.prepare(sql, [id]);
     }   
 
-    async getById(id: Number):Promise<Music[]|any>{
+    async getById(id: Number):Promise<Music[]|null>{
 
         const sql  = `SELECT idMusica, idGeneroMusical, idUsuario, titulo, descricao, autor, bpm
                     FROM musica 
                     WHERE idMusica = ?`;
 
         const [rows] = await super.prepare(sql, [id]);
-
+        if(rows.length == 0){
+            throw new GeneralError("Registro não encontrado !");
+        }
         return rows as Music[];
     }  
 
