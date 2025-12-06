@@ -1,4 +1,4 @@
-/*import dotenv from "dotenv";
+import dotenv from "dotenv";
 dotenv.config();
 
 
@@ -9,16 +9,16 @@ import MusicRepositorie from "../repositories/music.repositorie";
 
     const repo = new UserRepositorie();
     const users = await repo.getAllUsersRepositorie();
-    console.log('Quantidade usuário = ', users.length);
+    console.log('A quantidade usuário cadastrados é de', users.length);
 
     const music = new MusicRepositorie();
 
     const qtdMusic = await music.getAll();
-    console.log(`Quantidade de música é ${qtdMusic?.length}`);
+    console.log(`A quantidade de música cadastradas é de ${qtdMusic?.length}`);
 
-})();*/
-
-(async() => {
-    console.log('Teste concluído - Removido dependências .env')
 })();
+
+/*(async() => {
+    console.log('Teste concluído - Removido dependências .env')
+})();*/
 

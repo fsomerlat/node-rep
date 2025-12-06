@@ -4,7 +4,7 @@ export type User = {
     idUsuario: number,
     idGrupo: number,
     nome: string,
-    telefone?: string|number, //? = não é obrigatório
+    telefone?: string|number,
     email: string,
     status: string,
     termo: string

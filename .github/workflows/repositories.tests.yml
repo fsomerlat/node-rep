@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5 #baixa o código que está sendo enviado para main, para verificar em ambiente seguro e ver se está de acordo
       - name: Usando Node.js / express
-        uses: actions/setup-node@v4 #instala o node.js dentro da maquina criada
+        uses: actions/setup-node@v4 #instala o node.js dentro da maquina provisionada/criada
         with:
-          node-version: '22.x' #garante que a versão a ser instalada é 22 pra cima
+          node-version: '22.x' #garante que a versão a ser instalada é 22.x
       - name:  Instalar as dependecias do node.js 
         run: npm install #instala as depêncidas do node.js
       - name: Executando o Build

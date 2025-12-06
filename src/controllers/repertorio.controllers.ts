@@ -1,13 +1,15 @@
 import { RepertorioService } from "../service/repertorio.service";
 import { Request, Response,NextFunction } from "express";
 
-export class RepertorioController extends RepertorioService {
+export class RepertorioController {
 
-    constructor(){     
-        super();
+    private repService;
+
+    constructor(){
+        this.repService = new RepertorioService();
     }
 
     async getAllRepertorio(req: Request, res: Response, next: NextFunction):Promise<any> {
-        await super.getAllRepertorioService(req, res, next);
+        await this.repService.getAllRepertorioService(req, res, next);
     }
 }

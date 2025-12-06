@@ -15,7 +15,7 @@ export type Music = {
 
 export const musicSchema = Joi.object().keys({
     idGeneroMusical: Joi.number().required(),
-    idUsuario: Joi.number().required(),
+    idUsuario: Joi.number(),
     titulo: Joi.string().required(),
     descricao: Joi.string().required(),
     autor: Joi.string().required(),
