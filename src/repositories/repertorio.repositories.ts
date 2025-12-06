@@ -10,7 +10,7 @@ export class RepertorioRepositories extends DatabaseConfig {
   async getAllRepRepositories(): Promise<Repertorio[]|null> {
         
        const sql = `SELECT   idMusica, IdUsuario, dataCadastro, ultimaAtualizacao, situacao, tom
-                        FROM repertorio`;
+                    FROM repertorio`;
 
         const [rows] = await super.prepare(sql); 
     

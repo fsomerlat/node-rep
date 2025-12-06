@@ -2,7 +2,7 @@ import { Music } from '../models/music.models';
 import DatabaseConfig from '../config/db';
 import { GeneralError } from '../error/general.error';
 
-export default class MusicRepositorie extends DatabaseConfig {
+export class MusicRepositorie extends DatabaseConfig {
 
     constructor(){
 
@@ -13,10 +13,10 @@ export default class MusicRepositorie extends DatabaseConfig {
         this.getById = this.getById.bind(this);
     }
 
-    async getAll():Promise<Music[]|any>{
+    async getAll():Promise<Music[]>{
         
         const sql = `SELECT  idMusica, idGeneroMusical, idUsuario, titulo, descricao, autor, bpm  
-                     FROM musica`;
+                     FROM musica WHERE idMusica = 30`;
         const [result] = await super.prepare(sql, null);
         
         if(result.length == 0){ 

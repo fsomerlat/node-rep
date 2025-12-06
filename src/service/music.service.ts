@@ -1,4 +1,4 @@
-import MusicRepositorie from "../repositories/music.repositorie"; 
+import { MusicRepositorie } from "../repositories/music.repositorie"; 
 import { Music } from "../models/music.models";
 
 export class MusicService extends MusicRepositorie{
